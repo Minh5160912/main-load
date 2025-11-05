@@ -1,0 +1,47 @@
+-- Auto Load Script Hub + Notification Fix
+local StarterGui = game:GetService("StarterGui")
+local Players = game:GetService("Players")
+local Player = Players.LocalPlayer
+
+-- Hàm gửi thông báo an toàn
+local function SafeNotify(title, text, duration)
+    task.spawn(function()
+        local success, err = pcall(function()
+            StarterGui:SetCore("SendNotification", {
+                Title = title,
+                Text = text,
+                Duration = duration or 5
+            })
+        end)
+        if not success then
+            warn("SetCore Notification Error:", err)
+        end
+    end)
+end
+
+-- Thông báo khi load hub
+SafeNotify("Hub Loader", "Đang tải hub của bạn...", 5)
+
+-- Chờ game load
+repeat task.wait() until game:IsLoaded()
+
+-- Auto load script tương ứng với game
+local GameId = game.GameId
+if GameId == 2753915549 then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Minh5160912/minh-beo/refs/heads/main/bf"))()
+    SafeNotify("Hub Loader", "Đã tải hub cho Blox Fruits!", 5)
+if GameId == 4442272183 then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Minh5160912/minh-beo/refs/heads/main/bf"))()
+    SafeNotify("Hub Loader", "Đã tải hub cho Blox Fruits!", 5)
+if GameId == 7449423635 then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Minh5160912/minh-beo/refs/heads/main/bf"))()
+    SafeNotify("Hub Loader", "Đã tải hub cho Blox Fruits!", 5)
+elseif GameId == 7326934954 then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Minh5160912/minh-bell-99-night-hub/refs/heads/main/99%20ngight%20open%20source"))()
+    SafeNotify("Hub Loader", "Đã tải hub cho 99 Night", 5)
+--elseif GameId == 7326934954 then
+--    loadstring(game:HttpGet("https://raw.githubusercontent.com/Minh5160912/minh-bell-99-night-hub/refs/heads/main/99%20ngight%20open%20source"))()
+--    SafeNotify("Hub Loader", "Đã tải hub cho 99 Night", 5)
+else
+    SafeNotify("Hub Loader", "Game này chưa được hỗ trợ!", 5)
+end

@@ -30,10 +30,10 @@ local GameId = game.GameId
 if GameId == 2753915549 then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Minh5160912/minh-beo/refs/heads/main/bf"))()
     SafeNotify("Hub Loader", "Đã tải hub cho Blox Fruits!", 5)
-if GameId == 4442272183 then
+elseif GameId == 4442272183 then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Minh5160912/minh-beo/refs/heads/main/bf"))()
     SafeNotify("Hub Loader", "Đã tải hub cho Blox Fruits!", 5)
-if GameId == 7449423635 then
+elseif GameId == 7449423635 then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Minh5160912/minh-beo/refs/heads/main/bf"))()
     SafeNotify("Hub Loader", "Đã tải hub cho Blox Fruits!", 5)
 elseif GameId == 7326934954 then

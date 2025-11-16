@@ -1,5 +1,7 @@
 -- 🌐 Universal Auto Script Loader (fixed)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Minh5160912/main-load/refs/heads/main/intro%20load",true))()
 
+wait(1.0)
 local StarterGui = game:GetService("StarterGui")
 local GameId = game.PlaceId
 

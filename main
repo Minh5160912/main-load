@@ -48,8 +48,8 @@ if Scripts[GameId] then
 else
     Notify(" Game chưa được hỗ trợ!", "ID: "..tostring(GameId), 8)
     warn("⚠️ Game chưa có script hỗ trợ!")
-    warn("👉 Bạn có thể thêm dòng này vào bảng Scripts để hỗ trợ game này:")
-    warn(string.format("[%s] = \"https://pastebin.com/raw/YOUR_SCRIPT_LINK\", -- %s", tostring(GameId), game:GetService("MarketplaceService"):GetProductInfo(GameId).Name or "Unknown Game"))
+    warn("👉 Bạn có thể yêu cầu vào bảng Scripts trong discord để hỗ trợ game này:")
+    warn(string.format("[%s] = \gayyyyy
 end
 print("All supported PlaceIds:")
 for id, _ in pairs(Scripts) do

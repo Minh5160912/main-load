@@ -165,10 +165,19 @@ C1.Button.MouseButton1Click:Connect(function() setSel("V1",C1) end)
 C2.Button.MouseButton1Click:Connect(function() setSel("V2",C2) end)
 
 local function RunV1()
-	print("Anh Do MiXi")
+    print("Đang chạy Script V1: " .. CFG.V1_NAME)
+    local success, err = pcall(function()
+        loadstring(game:HttpGet(CFG.V1_URL))()
+    end)
+    if not success then warn("Lỗi V1: " .. err) end
 end
+
 local function RunV2()
-	print("Kho ga t dau")
+    print("Đang chạy Script V2: " .. CFG.V2_NAME)
+    local success, err = pcall(function()
+        loadstring(game:HttpGet(CFG.V2_URL))()
+    end)
+    if not success then warn("Lỗi V2: " .. err) end
 end
 
 local function openUI()

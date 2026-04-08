@@ -1,28 +1,24 @@
--- 🌐 Universal Auto Script Loader (fixed)
+-- 🌐 Universal Auto Script Loader (Fixed by Gemini)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Minh5160912/main-load/refs/heads/main/intro%20load",true))()
 
 wait(1.0)
 local StarterGui = game:GetService("StarterGui")
 local GameId = game.PlaceId
 
--- Danh sách các game & script
 local Scripts = {
     [2753915549] = "https://raw.githubusercontent.com/Minh5160912/main-load/refs/heads/main/minh%20bell%20hub.txt", -- Blox Fruit Sea 1
     [4442272183] = "https://raw.githubusercontent.com/Minh5160912/main-load/refs/heads/main/minh%20bell%20hub.txt", -- Blox Fruit Sea 2
     [7449423635] = "https://raw.githubusercontent.com/Minh5160912/main-load/refs/heads/main/minh%20bell%20hub.txt", -- Blox Fruit Sea 3
-    [3623096087] = "https://raw.githubusercontent.com/AhmadV99/Script-Games/main/Muscle%20Legends.lua", -- Muscle Legends
-    [10449761463] = "https://raw.githubusercontent.com/AhmadV99/Script-Games/main/The%20Strongest%20Battleground.lua", -- The Strongest Battlegrounds
-    [18901165922] = "https://raw.githubusercontent.com/AhmadV99/Script-Games/main/Pet%20GO.lua", -- Pet GO
-    [16732694052] = "https://raw.githubusercontent.com/AhmadV99/Script-Games/main/Fisch.lua", -- Fisch
-    [126884695634066] = "https://raw.githubusercontent.com/AhmadV99/Script-Games/refs/heads/main/Grow%20a%20Garden.lua", -- Grow a Garden
-    [79546208627805] = "https://raw.githubusercontent.com/Minh5160912/minh-bell-99-night-hub/refs/heads/main/99%20ngight%20open%20source", -- 99 Nights
-    [121864768012064] = "https://raw.githubusercontent.com/AhmadV99/Script-Games/refs/heads/main/Fish%20It.lua", -- Fish It
-    [127742093697776] = "https://raw.githubusercontent.com/AhmadV99/Script-Games/refs/heads/main/Plant%20Vs%20Brainrot.lua", -- Plant vs Brainrot
+    [3623096087] = "https://raw.githubusercontent.com/AhmadV99/Script-Games/main/Muscle%20Legends.lua",
+    [10449761463] = "https://raw.githubusercontent.com/AhmadV99/Script-Games/main/The%20Strongest%20Battleground.lua",
+    [18901165922] = "https://raw.githubusercontent.com/AhmadV99/Script-Games/main/Pet%20GO.lua",
+    [16732694052] = "https://raw.githubusercontent.com/AhmadV99/Script-Games/main/Fisch.lua",
+    [126884695634066] = "https://raw.githubusercontent.com/AhmadV99/Script-Games/refs/heads/main/Grow%20a%20Garden.lua",
+    [79546208627805] = "https://raw.githubusercontent.com/Minh5160912/minh-bell-99-night-hub/refs/heads/main/99%20ngight%20open%20source",
+    [121864768012064] = "https://raw.githubusercontent.com/AhmadV99/Script-Games/refs/heads/main/Fish%20It.lua",
+    [127742093697776] = "https://raw.githubusercontent.com/AhmadV99/Script-Games/refs/heads/main/Plant%20Vs%20Brainrot.lua",
 }
 
-print("Detected PlaceId:", GameId)
-
--- Hàm hiển thị thông báo an toàn
 local function Notify(title, text, duration)
     pcall(function()
         StarterGui:SetCore("SendNotification", {
@@ -33,27 +29,23 @@ local function Notify(title, text, duration)
     end)
 end
 
--- Kiểm tra và load script
 if Scripts[GameId] then
-    Notify(" Loading Script...", "GameID: "..GameId, 4)
+    Notify("Loading Script...", "GameID: "..GameId, 4)
     local success, result = pcall(function()
         loadstring(game:HttpGet(Scripts[GameId]))()
     end)
     if success then
-        Notify(" Script Loaded!", "Đã load script thành công!", 5)
+        Notify("Script Loaded!", "Đã load script thành công!", 5)
     else
-        Notify(" Lỗi khi chạy script!", tostring(result), 8)
-        warn(result)
+        Notify("Lỗi khi chạy script!", "Xem F9 để biết chi tiết", 8)
+        warn("Lỗi Loadstring:", result)
     end
 else
-    Notify(" Game chưa được hỗ trợ!", "ID: "..tostring(GameId), 8)
-    warn("⚠️ Game chưa có script hỗ trợ!")
-    warn("👉 Bạn có thể yêu cầu vào bảng Scripts trong discord để hỗ trợ game này:")
-    warn(string.format("[%s] = \gayyyyy
+    Notify("Game chưa hỗ trợ!", "ID: "..tostring(GameId), 5)
+    print("---------------------------------")
+    warn("⚠️ Game chưa có trong danh sách!")
+    print("Copy dòng này gửi admin: ["..GameId.."] = 'Link'")
+    print("---------------------------------")
 end
-print("All supported PlaceIds:")
-for id, _ in pairs(Scripts) do
-    print(" -", id)
-end
-print("Your current PlaceId:", GameId)
 
+print("Current PlaceId:", GameId)
